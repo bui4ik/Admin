@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Layout } from 'antd'
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import { IconOpen, IconClose } from './styles'
 
 const { Header } = Layout
 
 const Topbar = ({ isCollapsed, setIsCollapsed }) => (
-  <Header className="site-layout-background" style={{ padding: 0 }}>
+  <Header style={{ padding: 0 }}>
     {isCollapsed ? (
-      <MenuUnfoldOutlined onClick={() => setIsCollapsed(!isCollapsed)} />
+      <IconOpen onClick={() => setIsCollapsed(!isCollapsed)} />
     ) : (
-      <MenuFoldOutlined onClick={() => setIsCollapsed(!isCollapsed)} />
+      <IconClose onClick={() => setIsCollapsed(!isCollapsed)} />
     )}
   </Header>
 )
@@ -19,5 +19,5 @@ export default Topbar
 
 Topbar.propTypes = {
   isCollapsed: PropTypes.bool.isRequired,
-  setIsCollapsed: PropTypes.func.isRequired
+  setIsCollapsed: PropTypes.func.isRequired,
 }
