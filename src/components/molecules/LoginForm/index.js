@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd'
-import { FormWrapper } from "./styles";
+import { FormWrapper } from './styles'
+import useLoginForm from './useLoginForm'
 
 const layout = {
   labelCol: { span: 8 },
@@ -11,22 +12,11 @@ const tailLayout = {
 }
 
 const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values)
-  }
+  const [logIn] = useLoginForm()
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
-  }
   return (
     <FormWrapper>
-      <Form
-        {...layout}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
+      <Form {...layout} name="basic" initialValues={{ remember: true }} onFinish={logIn}>
         <Form.Item
           label="Username"
           name="username"
