@@ -1,9 +1,26 @@
 import styled from 'styled-components'
 
-export const FormWrapper = styled.div`
+export const Wrapper = styled.div`
   background-color: #fff;
-  border: 1px solid #f0f0f0;
-  width: 440px;
-  padding: 30px 40px 0 0;
   border-radius: 5px;
+`
+
+export const Box = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+export const Title = styled.h1`
+  font-weight: bold;
+  margin: 0;
+`
+
+export const FormWrapper = styled.div`
+  margin: 20px 0;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
 `
