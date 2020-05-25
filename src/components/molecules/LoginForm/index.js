@@ -1,16 +1,17 @@
 import React from 'react'
-import { Button, Checkbox, Form, Input } from 'antd'
-import { Wrapper, Title, Box, FormWrapper } from './styles'
+import { Checkbox, Form } from 'antd'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import {
+  Wrapper,
+  Box,
+  FormWrapper,
+  FormContent,
+  StyledBtn,
+  StyledInput,
+  StyledPassInput,
+} from './styles'
 import useLoginForm from './useLoginForm'
-
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-}
-
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-}
+import Title from '../../atoms/Typography/title'
 
 const LoginForm = () => {
   const [logIn] = useLoginForm()
@@ -18,35 +19,35 @@ const LoginForm = () => {
   return (
     <Wrapper>
       <Box>
-        <Title>Sign in</Title>
+        <Title text="Sign in" />
       </Box>
       <FormWrapper>
-        <Form {...layout} name="basic" initialValues={{ remember: true }} onFinish={logIn}>
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input />
-          </Form.Item>
+        <Form name="basic" initialValues={{ remember: true }} onFinish={logIn}>
+          <FormContent>
+            <Form.Item
+              name="username"
+              rules={[{ required: true, message: 'Please input your username!' }]}
+            >
+              <StyledInput placeholder="Username" prefix={<UserOutlined />} />
+            </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[{ required: true, message: 'Please input your password!' }]}
+            >
+              <StyledPassInput placeholder="Password" prefix={<LockOutlined />} />
+            </Form.Item>
 
-          <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+            <Form.Item name="remember" valuePropName="checked">
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
 
-          <Form.Item>
-              <Button type="primary" htmlType="submit" shape="round">
+            <Form.Item>
+              <StyledBtn type="primary" htmlType="submit" shape="round">
                 Sign in
-              </Button>
-          </Form.Item>
+              </StyledBtn>
+            </Form.Item>
+          </FormContent>
         </Form>
       </FormWrapper>
     </Wrapper>

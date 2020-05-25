@@ -10,8 +10,8 @@ const { TabPane } = Tabs
 const Auth = () => (
   <AuthLayout>
     <Wrapper>
-      <Tabs defaultActiveKey="1" size="large" style={{ marginBottom: 32 }}>
-        <TabPane tab="LOG IN" key="1">
+      <Tabs defaultActiveKey="1" size="large">
+        <TabPane tab="LOG IN" key="1" style={{maxWidth: 400}}>
           <LoginForm />
         </TabPane>
         <TabPane tab="REGISTRATION" key="2">
