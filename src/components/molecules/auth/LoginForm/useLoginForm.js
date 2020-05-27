@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { logInRequest } from '../../../store/auth/actions'
+import { logInRequest } from '../../../../store/auth/actions'
 
 const useLoginForm = () => {
   const dispatch = useDispatch()

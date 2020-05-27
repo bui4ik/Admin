@@ -1,7 +1,8 @@
 export const initialState = {
   isAuth: false,
   username: '',
-  isLoading: false,
+  isLoginLoading: false,
+  isRegisterLoading: false,
   error: {},
 }
 
